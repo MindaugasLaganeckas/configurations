@@ -1,8 +1,8 @@
-version: "2"
+version: "3"
 
 services:
   gamecollector-sonarqube:
-    image: sonarqube:7.1
+    image: sonarqube:7.6-community
     container_name: gamecollector-sonarqube
     ports:
       - "9000:9000"
@@ -17,7 +17,7 @@ services:
       - gamecollector_sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
 
   gamecollector-sonaqube-psql:
-    image: postgres
+    image: postgres:12.0
     container_name: gamecollector-sonarqube-psql
     networks:
       - sonarnet
@@ -35,7 +35,7 @@ networks:
 
 volumes:
   gamecollector_sonarqube_conf:
-  gamecollector_sonarqube_data:/home/mindaugas/wastebasket/
+  gamecollector_sonarqube_data:
   gamecollector_sonarqube_extensions:
   gamecollector_sonarqube_bundled-plugins:
   gamecollector_sonarqube_postgresql:
