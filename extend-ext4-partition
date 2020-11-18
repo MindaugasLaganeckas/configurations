@@ -1,0 +1,7 @@
+How to extend existing ext4 partition
+
+    Resize the allocated partition. eg: cfdisk /dev/sda and select the option to resize the partition.
+    The OS should update automatically, but just in case you can call partprobe /dev/sda
+    Resize the file system. eg: for the ext file systems resize2fs /dev/sda1
+
+As long as you are extending the partition (not shrinking) it should be safe to do this with the system running. But do backup everything.
