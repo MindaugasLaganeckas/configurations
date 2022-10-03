@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# if the session is already running, just attach to it.
+
+tmux has-session -t 2panel
+
+if [ $? -eq 0 ]; then
+  sleep 1
+  tmux attach -t 2panel
+else 
+  tmux new-session -d -s 2panel
+  tmux split-window -v
+  tmux select-pane -t 0
+  tmux -2 attach-session -d
+fi
